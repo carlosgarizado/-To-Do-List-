@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import {
@@ -15,6 +15,7 @@ import {
   IonTitle,
   IonMenu,
 } from '@ionic/angular/standalone';
+import { RemoteConfigService } from './core/services/remote-config';
 
 @Component({
   selector: 'app-root',
@@ -36,8 +37,14 @@ import {
     IonMenu,
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  public showCategory = false;
+  private rcService = inject(RemoteConfigService);
   constructor(private menuCtrl: MenuController) {}
+
+  async ngOnInit() {
+    this.showCategory = await this.rcService.isCategoryVisible();
+  }
 
   async navigate(link: string) {
     await this.menuCtrl.close();
