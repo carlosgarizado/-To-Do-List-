@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <app-header [title]="title"></app-header>
+
+  <ion-toolbar class="categories-toolbar">
+    <ion-segment scrollable>
+      <ion-segment-button [value]="'all'" (click)="selectCategory('all')" [class.active]="selectedCategoryId === 'all'">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="'uncategorized'" (click)="selectCategory('uncategorized')"
+        [class.active]="selectedCategoryId === 'uncategorized'">
+        <ion-label>Sin categoría</ion-label>
+      </ion-segment-button>
+      @for (category of categories; track category.id) {
+      <ion-segment-button [value]="category.id" (click)="selectCategory(category.id)"
+        [class.active]="selectedCategoryId === category.id">
+        <ion-label>{{ category.name }}</ion-label>
+      </ion-segment-button>
+      }
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="dark" class="ion-padding">
+  @if (filteredTasks.length > 0) {
+  <div class="tasks-container">
+    @for (task of filteredTasks; track task.id) {
+    <app-task-item [task]="task" (toggleComplete)="toggleTask($event)" (deleteTask)="removeTask($event)"
+      (editTask)="editTask($event)">
+    </app-task-item>
+    }
+  </div>
+  } @else {
+  <div class="ion-text-center ion-margin-top">
+    <ion-icon name="clipboard-outline" size="large" color="medium"></ion-icon>
+    <p>No hay tareas disponibles.</p>
+  </div>
+  }
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button  class="btn-add"  (click)="addTask()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

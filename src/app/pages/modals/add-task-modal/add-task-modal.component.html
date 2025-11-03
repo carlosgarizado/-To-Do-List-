@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>{{ editMode ? 'Editar tarea' : 'Nueva tarea' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="cerrar-btn"  (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="stacked">Título de la tarea</ion-label>
+      <ion-input
+        formControlName="title"
+        placeholder="Ingresa el título de la tarea">
+      </ion-input>
+    </ion-item>
+    @if (title?.touched && title?.invalid) {
+      <ion-note color="danger">
+        El título es obligatorio (mínimo 3 caracteres)
+      </ion-note>
+    }
+    <ion-item>
+      <ion-label position="stacked">Categoría</ion-label>
+      <ion-select
+        formControlName="categoryId"
+        interface="popover"
+        placeholder="Selecciona una categoría">
+        @for (cat of categories; track cat.id) {
+          <ion-select-option [value]="cat.id">
+            {{ cat.name }}
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+  </form>
+
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button
+    expand="block"
+    class="update-btn"
+    (click)="save()"
+    [disabled]="form.invalid">
+    {{ editMode ? 'Actualizar tarea' : 'Guardar tarea' }}
+  </ion-button>
+</ion-footer>

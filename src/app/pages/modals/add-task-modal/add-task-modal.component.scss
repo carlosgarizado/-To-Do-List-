@@ -1,0 +1,36 @@
+ion-toolbar {
+    --background: #8b5cf6;;
+    --color: #fff;
+  }
+  
+  ion-content {
+    --background: #1e1e1e;
+    color: white;
+  
+    ion-item {
+      --background: transparent;
+      color: white;
+    }
+  
+    ion-input,
+    ion-select {
+      color: white;
+    }
+  
+    ion-note {
+      margin-left: 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  ion-footer {
+    background: #1e1e1e;
+  }
+  
+  .cerrar-btn {
+    --color: #ffffff; 
+  }
+
+  .update-btn{
+    --background: #8b5cf6;
+  }

@@ -35,3 +35,25 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+ion-menu.custom-menu {
+    --background: #8b5cf6;
+  }
+  
+  ion-menu.custom-menu ion-toolbar {
+    --background: #8b5cf6;
+    --color: #ffffff;
+  }
+  
+  ion-menu.custom-menu ion-item {
+    --background: #8b5cf6;
+    --color: #ffffff;
+  }
+  
+  ion-menu.custom-menu ion-item ion-icon {
+    --color: #ffffff;
+  }
+  ion-menu.custom-menu ion-content {
+    --background: #8b5cf6;
+  }

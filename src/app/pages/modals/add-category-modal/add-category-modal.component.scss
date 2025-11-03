@@ -1,0 +1,61 @@
+ion-toolbar {
+    --background: #8b5cf6;
+    --color: #fff;
+  }
+  
+  ion-content {
+    --background: #1e1e1e;
+    color: white;
+  
+    ion-item {
+      --background: transparent;
+      color: white;
+    }
+  
+    ion-input,
+    ion-select {
+      color: white;
+    }
+  
+    ion-note {
+      margin-left: 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  ion-footer {
+    background: #1e1e1e;
+  }
+  
+
+  .color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+  }
+  
+  .icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: start;
+  }
+  
+  .icon-grid ion-button {
+    --padding-start: 4px;
+    --padding-end: 4px;
+    --padding-top: 4px;
+    --padding-bottom: 4px;
+    border-radius: 12px;
+  }
+
+  .cerrar-btn {
+    --color: #ffffff; 
+  }
+
+  .update-btn{
+    --background: #8b5cf6;
+  }

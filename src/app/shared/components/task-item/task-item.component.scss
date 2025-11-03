@@ -1,0 +1,57 @@
+.task-card {
+  background: #6c6868;
+  border-radius: 16px;
+  color: white;
+  box-shadow: none;
+  margin: 0px;
+
+  &.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.task-item {
+  --background: transparent;
+  --color: white;
+
+  ion-checkbox {
+    --size: 22px;
+    margin-right: 12px;
+  }
+
+  ion-label.task-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+}
+
+.category-container {
+  margin: 0 16px 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+
+  ion-icon {
+    font-size: 20px;
+  }
+
+  ion-icon[name='trash-outline'] {
+    color: #e74c3c;
+  }
+
+  ion-icon[name='create-outline'] {
+    color: #4c8dff;
+  }
+}

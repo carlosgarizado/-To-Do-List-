@@ -1,0 +1,36 @@
+<ion-header>
+  <app-header [title]="title"></app-header>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  @if (categories.length > 0) {
+    <div class="category-list">
+      @for (category of categories; track category.id) {
+        <ion-card class="category-card">
+          <ion-card-content class="category-item">
+            <span>{{ category.name }}</span>
+            <div class="actions">
+              <ion-icon name="create-outline" (click)="editCategory(category)"></ion-icon>
+              <ion-icon name="trash-outline" (click)="deleteCategory(category)"></ion-icon>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      }
+    </div>
+  } @else {
+    <div class="empty-state ion-text-center">
+      <ion-icon name="folder-open-outline" size="large" color="medium"></ion-icon>
+      <p>No tienes categorías creadas todavía.</p>
+      <ion-text color="medium">
+        <small>Puedes agregar una nueva categoría usando el botón “+”.</small>
+      </ion-text>
+    </div>
+  }
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  class="btn-add" (click)="addCategory()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

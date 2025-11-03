@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ editMode ? 'Editar categoría' : 'Nueva categoría' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="cerrar-btn"  (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input formControlName="name" placeholder="Ingresa el nombre de la categoría"></ion-input>
+    </ion-item>
+    @if (name?.touched && name?.invalid) {
+      <ion-note color="danger">El nombre es obligatorio (mínimo 3 caracteres)</ion-note>
+    }
+    <ion-item>
+      <ion-label position="stacked">Color</ion-label>
+      <ion-select formControlName="color" interface="popover" placeholder="Selecciona un color">
+        @for (c of colors; track c.value) {
+          <ion-select-option [value]="c.value">
+            <div class="color-dot" [style.background]="c.value"></div>
+            {{ c.name }}
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="stacked">Ícono</ion-label>
+      <div class="icon-grid">
+        @for (ic of icons; track ic) {
+          <ion-button
+            fill="clear"
+            [color]="form.get('icon')?.value === ic ? 'primary' : 'medium'"
+            (click)="form.get('icon')?.setValue(ic)"
+          >
+            <ion-icon [name]="ic" size="large"></ion-icon>
+          </ion-button>
+        }
+      </div>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button expand="block" class="update-btn" (click)="save()" [disabled]="form.invalid">
+    {{ editMode ? 'Actualizar categoría' : 'Guardar categoría' }}
+  </ion-button>
+</ion-footer>

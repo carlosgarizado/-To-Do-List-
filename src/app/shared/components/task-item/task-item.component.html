@@ -1,0 +1,20 @@
+<ion-card [class.completed]="task.completed" class="task-card">
+  <ion-item lines="none" class="task-item">
+    <ion-checkbox slot="start" [checked]="task.completed" (ionChange)="onToggleComplete()" color="success">
+    </ion-checkbox>
+
+    <ion-label class="task-title">
+      {{ task.title }}
+    </ion-label>
+
+    <div class="actions">
+      <ion-icon name="create-outline" (click)=" onEdit()"></ion-icon>
+      <ion-icon name="trash-outline" (click)="onDelete()" ></ion-icon>
+    </div>
+  </ion-item>
+  <div class="category-container">
+    <app-category-chip 
+    [category]="task.category ? task.category : { id: 'default', name: 'Sin categoría', color: 'medium', icon: 'pricetag-outline' }">
+  </app-category-chip>
+  </div>
+</ion-card>

@@ -1,0 +1,20 @@
+.menu-button-white {
+    ion-menu-button {
+        --color: #ffffff;
+    }
+}
+
+ion-toolbar {
+    --background: #8b5cf6;
+    padding: 10px !important;
+
+    ion-title.page-title {
+        font-weight: 700;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    ion-button {
+        --color: #fff;
+    }
+}
