@@ -43,7 +43,7 @@ import { ModalConfirmationComponent } from 'src/app/shared/components/modal-conf
     HeaderComponent,
   ],
 })
-export class TasksPage implements OnInit {
+export class TasksPage implements OnInit{
   public categories: ICategory[] = [];
   public selectedCategoryId: string = 'all';
   public tasks: ITask[] = [];
@@ -56,6 +56,10 @@ export class TasksPage implements OnInit {
   ) {}
 
   async ngOnInit() {
+    await this.loadData();
+  }
+
+  async ionViewWillEnter() {
     await this.loadData();
   }
 

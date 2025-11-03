@@ -64,10 +64,11 @@ ion-card {
   p {
     font-weight: 500;
     margin-bottom: 4px;
-    color: #fff;
+    color: red;
   }
 }
 
 .btn-add{
   --background: #8b5cf6;
+  --color : #fff;
 }

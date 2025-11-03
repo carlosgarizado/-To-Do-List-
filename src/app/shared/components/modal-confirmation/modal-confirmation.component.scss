@@ -6,7 +6,7 @@
 
 
 ion-toolbar {
-    --background: var(--ion-color-primary);
+    --background: #8b5cf6;
     --color: #fff;
 }
 
@@ -38,5 +38,18 @@ ion-footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
+
+.update-btn{
+    --background: #8b5cf6;
+    --border-radius: 20px;
+  }
+
+  .delete-btn{
+    --border-radius: 20px;
+  }

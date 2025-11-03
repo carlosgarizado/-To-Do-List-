@@ -49,11 +49,40 @@ ion-menu.custom-menu {
   ion-menu.custom-menu ion-item {
     --background: #8b5cf6;
     --color: #ffffff;
+    ion-icon{
+      margin-right: 20px;
+    }
   }
   
   ion-menu.custom-menu ion-item ion-icon {
     --color: #ffffff;
+    margin-right: 20px;
   }
   ion-menu.custom-menu ion-content {
     --background: #8b5cf6;
   }
+
+ion-menu.custom-menu::part(content) ion-list {
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-menu.custom-menu ion-list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+ion-menu.custom-menu ion-item .item-inner {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+ion-menu.custom-menu ion-item ion-icon,
+ion-menu.custom-menu ion-item ion-label {
+  margin: 3px !important;
+  padding: 0 !important;
+}
+
+ion-item::part(native) {
+  --margin: 0px;
+}

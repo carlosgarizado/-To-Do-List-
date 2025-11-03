@@ -4,7 +4,7 @@ ion-header {
 
     .categories-toolbar {
         --background: var(--ion-color-dark);
-        padding: 20px 0px 20px 0px;
+        padding: 20px 10px 20px 10px;
     }
 }
 
@@ -21,7 +21,8 @@ ion-segment-button {
     --color: #b0b0b0;
     background: #2a2a2d;
     border-radius: 20px;
-    padding: 6px 16px;
+    padding: 5px;
+    border-radius: 50px;
     font-size: 14px;
     font-weight: 500;
     text-transform: none;
@@ -29,6 +30,10 @@ ion-segment-button {
     max-width: none;
     justify-content: center;
     white-space: nowrap;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ion-segment-button ion-label {
@@ -62,4 +67,5 @@ ion-content {
 
 .btn-add{
     --background: #8b5cf6;
+    --color : #fff;
   }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import {
   IonApp,
@@ -40,14 +40,17 @@ import { RemoteConfigService } from './core/services/remote-config';
 export class AppComponent implements OnInit{
   public showCategory = false;
   private rcService = inject(RemoteConfigService);
-  constructor(private menuCtrl: MenuController) {}
+  constructor(private menuCtrl: MenuController, private router: Router,private cdRef: ChangeDetectorRef) {}
 
   async ngOnInit() {
     this.showCategory = await this.rcService.isCategoryVisible();
   }
 
   async navigate(link: string) {
-    await this.menuCtrl.close();
-    window.location.href = link;
+    const menu = await this.menuCtrl.get('custom-menu'); 
+    if (menu) {
+      await menu.close(); 
+    }
+    this.router.navigate([link]);
   }
 }

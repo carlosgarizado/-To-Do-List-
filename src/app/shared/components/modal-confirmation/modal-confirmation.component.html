@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,10 +12,10 @@
 
 <ion-footer class="ion-padding">
   <div class="buttons">
-    <ion-button expand="block" color="danger" fill="outline" (click)="cancel()">
+    <ion-button expand="block" class="delete-btn" color="danger" fill="outline" (click)="cancel()">
       Cancelar
     </ion-button>
-    <ion-button expand="block" color="primary" (click)="confirm()">
+    <ion-button expand="block" class="update-btn" (click)="confirm()">
       Aceptar
     </ion-button>
   </div>
